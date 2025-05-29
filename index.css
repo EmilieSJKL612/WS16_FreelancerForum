@@ -6,6 +6,16 @@ body {
     background-color: #f9f9f9;
   }
   
+  h1 {
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  p {
+    text-align: center;
+    font-style: italic;
+  }
+  
   table {
     width: 100%;
     border-collapse: collapse;
@@ -21,4 +31,9 @@ body {
   thead {
     background-color: #eee;
   }
+  
+  th {
+    text-transform: uppercase;
+  }
+  
   

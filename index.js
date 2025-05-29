@@ -52,7 +52,7 @@ function FreelancerRow({ name, occupation, rate}){
         <tr>
             <td>${name}</td>
             <td>${occupation}</td>
-        <td>$${rate.toFixed(2)}</td>
+            <td>$${rate.toFixed(2)}</td>
         </tr>
     `;
 }
@@ -60,41 +60,41 @@ function FreelancerRow({ name, occupation, rate}){
 
 // req. 6 - componenet function to represent array of freelancers
 function FreelancerTable(freelancers){
-    function FreelancerTable(freelancers){
-        const rows = freelancers.map(FreelancerRow).join("");
-        return `
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Occupation</th>
-                        <th>Rate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${rows}
-                </tbody>
-            </table>
-        `;
-    }    
+    const rows = freelancers.map(FreelancerRow).join("");
+    return `
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Occupation</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    `;
 }
 
 
 // req. 7 - component function to represent average rate of all freelancers
 function AverageRateDisplay(rate){
-    return `<p><strong>Average Rate:</strong> $${rate.toFixed(2)}</p>`;
+    return `<p>The average rate is <strong>$${rate.toFixed(2)}</strong>.</p>`;
 }
 
 
 // req. 8 + 9 render function (mount application into document) + call this render function
+// not sure how many rows to display, set to 20 now for testing the output
 function render() {
     const app = document.getElementById("app");
+    const topFreelancers = freelancers.slice(0, 20); // Show first 20
     app.innerHTML = `
       <h1>Freelancer Forum</h1>
       ${AverageRateDisplay(averageRate)}
-      ${FreelancerTable(freelancers)}
+      ${FreelancerTable(topFreelancers)}
     `;
-  }
+}
 
   render();
 
